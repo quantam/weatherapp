@@ -1,0 +1,10 @@
+.card {
+  cursor: pointer;
+  &:hover {
+    background-color: green;
+    color: white;
+    .text-success {
+      color: white !important;
+    }
+  }
+}

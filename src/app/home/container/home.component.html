@@ -1,0 +1,24 @@
+<div class="row justify-content-start">
+  <ng-container *ngIf="weatherInfos$ | async as weatherInfos">
+    <div
+      class="col-12 col-md-4 col-sm-12 col-xs-12 mt-3"
+      *ngFor="let info of weatherInfos?.list"
+      (click)="goToDetails(info.name)"
+    >
+      <div class="card p-4">
+        <div class="d-flex">
+          <h2 class="flex-grow-1">{{ info?.name }}</h2>
+        </div>
+        <div class="d-flex flex-column temp mt-2 mb-2">
+          <h1 class="mb-0 font-weight-bold text-success" id="heading">
+            {{ info?.main?.temp }}&#176;c
+          </h1>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p>Sunrise: {{ info?.sys?.sunrise * 1000 | date: "shortTime" }}</p>
+          <p>Sunset: {{ info?.sys?.sunset * 1000 | date: "shortTime" }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
